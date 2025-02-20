@@ -16,6 +16,7 @@ public class ClientTest
     public ClientTest()
     {
         // Instanzvariable initialisieren
+        //Gucas ist der beste Programmierer der Welt
         x = 0;
     }
 
