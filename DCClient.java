@@ -2,16 +2,9 @@ import java.util.List;
 
 public class DCClient extends Client {
 
-  private List <Player> players ;
-
-  private List cards;
-
-  private Player turn;
-
   private int pile;
 
   private boolean joined;
-
   
   public void DCClient(String ip, int port) {
   }
@@ -19,19 +12,10 @@ public class DCClient extends Client {
   public void processMessage(String message) {
   }
 
-  public void addPlayer(Player player) {
+  public void drawCard() {
   }
 
-  public void removePlayer(Player player) {
-  }
-
-  public void setCards(List cards) {
-  }
-
-  public void drawCard(Card card) {
-  }
-
-  public void playCard(Card card) {
+  public void playCard() {
   }
 
   public List getPlayers() {
@@ -42,8 +26,8 @@ public class DCClient extends Client {
   return null;
   }
 
-  public Player getTurn() {
-  return null;
+  public int getTurn() {
+  return 0;
   }
 
   public int getPile() {
