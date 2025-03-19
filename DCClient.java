@@ -8,6 +8,7 @@ public class DCClient extends Client {
 
   public DCClient(String ip, int port) {
       super(ip, port);
+      
   }
 
   public void processMessage(String message) {
