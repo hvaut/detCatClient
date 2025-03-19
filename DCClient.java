@@ -5,8 +5,9 @@ public class DCClient extends Client {
   private int pile;
 
   private boolean joined;
-  
-  public void DCClient(String ip, int port) {
+
+  public DCClient(String ip, int port) {
+      super(ip, port);
   }
 
   public void processMessage(String message) {
