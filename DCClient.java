@@ -1,9 +1,8 @@
 import java.util.List;
 
 public class DCClient extends Client {
-
+    
     private int pile;
-
     private boolean joined;
 
     public DCClient(String ip, int port) {
@@ -12,7 +11,7 @@ public class DCClient extends Client {
 
     public void processMessage(String message) {
     }
-
+    
     public void drawCard() {
     }
 
