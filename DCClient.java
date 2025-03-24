@@ -2,36 +2,37 @@ import java.util.List;
 
 public class DCClient extends Client {
 
-  private int pile;
+    private int pile;
 
-  private boolean joined;
-  
-  public void DCClient(String ip, int port) {
-  }
+    private boolean joined;
 
-  public void processMessage(String message) {
-  }
+    public DCClient(String ip, int port) {
+        super(ip, port);
+    }
 
-  public void drawCard() {
-  }
+    public void processMessage(String message) {
+    }
 
-  public void playCard() {
-  }
+    public void drawCard() {
+    }
 
-  public List getPlayers() {
-  return null;
-  }
+    public void playCard() {
+    }
 
-  public List getCards() {
-  return null;
-  }
+    public List getPlayers() {
+        return null;
+    }
 
-  public int getTurn() {
-  return 0;
-  }
+    public List getCards() {
+        return null;
+    }
 
-  public int getPile() {
-  return 0;
-  }
+    public int getTurn() {
+        return 0;
+    }
+
+    public int getPile() {
+        return 0;
+    }
 
 }
