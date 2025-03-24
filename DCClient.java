@@ -11,7 +11,7 @@ public class DCClient extends Client {
 
     public void processMessage(String message) {
     }
-
+    
     public void drawCard() {
     }
 
