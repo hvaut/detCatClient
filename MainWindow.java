@@ -631,7 +631,9 @@ public class MainWindow extends javax.swing.JPanel
     }
     int i;
     public void next(){
-        i = mg.next();
+        i = mg.next();// pull button als next
+        //temp
+        //i = mg.pull();
         if (i==1){jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 15, true));}else{jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 15, true));}
         if (i==2){jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 15, true));}else{jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 15, true));}
         if (i==3){jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 0), 15, true));}else{jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 15, true));}

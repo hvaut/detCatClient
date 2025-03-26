@@ -35,19 +35,19 @@ public class DCClient extends Client {
     }
 
     public List getPlayers() {
-    return null;
+        return null;
     }
 
     public List getCards() {
-    return null;
+        return null;
     }
 
     public int getTurn() {
-    return 0;
+        return 0;
     }
 
     public int getPile() {
-    return 0;
+        return 0;
     }
 
 }

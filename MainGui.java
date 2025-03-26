@@ -192,18 +192,31 @@ public class MainGui extends javax.swing.JFrame
             return 0;
         }else return -1;
     }
-
+    /**
+     * Zieht karte nach
+     */
+    public String pull(){
+        return"";
+    }
     // für daten übergabe(Client)
+    /**
+     * Gibt die gesamte Karten Anzahl
+     */
     public int getTotalCards(){
         int a = mainWindow2.getTotalCrads();
         return a;
     }
-
+    /**
+     * Gibt den Namen
+     */
     public String getPName(){
         return pName;
     }
-
-    public String getCode(){
-        return code;
+    /**
+     * Gibt den Code
+     */
+    public int getCode(){
+        int a = Integer.parseInt(code);
+        return a;
     }
 }
