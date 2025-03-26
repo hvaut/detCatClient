@@ -198,11 +198,15 @@ public class MainGui extends javax.swing.JFrame
     public String pull(){
         return"";
     }
+    public int getTotalCards(){
+        int cards = 1;
+        return cards;
+    }
     // für daten übergabe(Client)
     /**
      * Gibt die gesamte Karten Anzahl
      */
-    public int getTotalCards(){
+    public int getTotalpCards(){
         int a = mainWindow2.getTotalCrads();
         return a;
     }

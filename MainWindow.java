@@ -705,7 +705,8 @@ public class MainWindow extends javax.swing.JPanel
 
     public void showProgress(){
         int i = mg.progress();
-        jProgressBar1.setValue(100-i);
+        int cards = mg.getTotalCards();
+        jProgressBar1.setValue(100-i+cards);
         jProgressBar2.setValue(i);
     }
 
