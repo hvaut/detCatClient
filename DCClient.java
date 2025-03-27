@@ -7,7 +7,8 @@ public class DCClient extends Client {
 
     private String turn;
     private List<String> players;
-    private MainGui mg;
+    
+    private MainGui gui;
 
     public DCClient(String ip, int port) {
         super(ip, port);
@@ -22,8 +23,8 @@ public class DCClient extends Client {
         //List<String> players = new List();
     }
 
-    public void processMessage(String message) {
-        String[] data = message.split(" ");
+    public void processMessage(String pMessage) {
+        String[] data = pMessage.split(" ");
         // make sure the array is not empty
         if (data.length < 1) {
             send("-ERR Wrong command");
@@ -63,7 +64,7 @@ public class DCClient extends Client {
                 return;
             }
         } else if (data[0].equalsIgnoreCase("-ERR")) {
-
+            gui.error(pMessage);
         } else if (data[0].equalsIgnoreCase("BOMB") && data.length == 2) {
             // Player received a bomb
         } else if (data[0].equalsIgnoreCase("PLACE") && data.length == 3) {
@@ -99,7 +100,6 @@ public class DCClient extends Client {
     }
 
     public List<String> getPlayers() {
-
         return players;
     }
 
