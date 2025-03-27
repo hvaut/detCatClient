@@ -2,21 +2,17 @@
 public class DCClient extends Client {
     private int pile;
     private boolean joined;
-    
+
     private List<String> cards;
 
     private String turn;
     private List<String> players;
 
-
     public DCClient(String ip, int port) {
         super(ip, port);
 
-        
         cards = new List<String>();
 
-
-        
         players = new List<String>();
         //List<String> players = new List();     
         //List<String> players = new List();
@@ -99,16 +95,45 @@ public class DCClient extends Client {
     }
 
     public List<String> getPlayers() {
-
         return players;
     }
+    
+    
+    /**
+     * Methode addPlayer
+     *
+     * @param player Player hinzufügen
+     */
+    public void addPlayer(String player) {
+        players.append(player);
+    }
+    
+    /**
+     * Removes a player
+     * 
+     * @param player player to remove
+     */
+    public void removePlayer(String player) {
+        players.toFirst();
+        while (players.hasAccess()){
+            String name = players.getContent();
+            if (name.equals(player)) break;
+        }
 
+        if (players.hasAccess()) players.remove();
+    }
+
+    /**
+     * Methode getCards
+     *
+     * @return Der Rückgabewert
+     */
     public List<String> getCards() {
         return players;
     }
 
-    public int getTurn() {
-        return 0;
+    public String getTurn() {
+        return turn;
     }
 
     public int getPile() { 
