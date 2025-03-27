@@ -6,7 +6,7 @@ public class DCClient extends Client {
     private boolean joined;
     private String turn;
     private List<String> players;
-
+    private MainGui mg;
 
     public DCClient(String ip, int port) {
         super(ip, port);
