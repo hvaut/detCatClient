@@ -1,13 +1,14 @@
 import java.util.List;
 
 public class DCClient extends Client {
-    
+
     private int pile;
     private boolean joined;
-    
+    private List<String> players;
 
     public DCClient(String ip, int port) {
         super(ip, port);
+        players = new List<String>();
     }
 
     public void processMessage(String message) {
@@ -17,31 +18,36 @@ public class DCClient extends Client {
         //    send(ip, port, "-ERR Wrong command");
         //    return;
         //}
-        
+
         //if (data[0] == "+OK"){
         //    if
         //} else if (data[0] == "-ERR") {
-            
+
         //} else {
-            
+
         //}
-        
+
     }
-    
+
     public void drawCard() {
+
     }
 
     public void playCard() {
+
     }
 
     public List getPlayers() {
+        
+
         return null;
     }
 
     public List getCards() {
         return null;
     }
-
+    
+    
     public int getTurn() {
         return 0;
     }
