@@ -1,14 +1,17 @@
-import java.util.List;
+
 
 public class DCClient extends Client {
 
     private int pile;
     private boolean joined;
+    private String turn;
     private List<String> players;
+
 
     public DCClient(String ip, int port) {
         super(ip, port);
         players = new List<String>();
+        //List<String> players = new List();
     }
 
     public void processMessage(String message) {
@@ -37,23 +40,28 @@ public class DCClient extends Client {
 
     }
 
-    public List getPlayers() {
-        
+    public List<String> getPlayers() {
+        //toFirst();
+        //String erg = "";
+        //while(hasAccess()){
+        //    erg = erg + getContent().getName();
+        //    next();
+        //}
+        //return erg;
 
         return null;
     }
 
-    public List getCards() {
-        return null;
+    public List<String> getCards() {
+        return players;
     }
-    
-    
+
     public int getTurn() {
         return 0;
     }
 
-    public int getPile() {
-        return 0;
+    public int getPile() { 
+        return pile;
     }
 
 }
