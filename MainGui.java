@@ -85,7 +85,7 @@ public class MainGui extends javax.swing.JFrame
     // End of variables declaration                   
     private int akt = 1;
     boolean io = false;
-    
+
     /**
      * switcht zwischen den Pannels
      */
@@ -101,14 +101,14 @@ public class MainGui extends javax.swing.JFrame
         }
 
     }
-    
+
     /**
      * Übergibt welches Popupfenster geöffnet werden soll
      */
-    public void popup(){
+    public void popup(int pA){
         Pw = new PopupWindow();
         Pw.setVisible(true);
-        Pw.switchPanel(2);
+        Pw.switchPanel(pA);
     }
 
     /**
@@ -119,7 +119,7 @@ public class MainGui extends javax.swing.JFrame
         loginWindow1.setMg(this);
         mainWindow2.setMg(this);
     }
-    
+
     /**
      * Updated die GUI
      */
@@ -138,12 +138,12 @@ public class MainGui extends javax.swing.JFrame
         String p3 = "Ross";
         return p1+"-"+p2+"-"+p3;
     } //Spielerübergabe von Client, als Liste oder Array oder so?
-    
-    public void error(){
+
+    public void error(String pError){
+        popup(2);
         
     }
-    
-    
+
     /**
      * Anzahl der Karten aller Spieler
      */
@@ -207,12 +207,14 @@ public class MainGui extends javax.swing.JFrame
             return 0;
         }else return -1;
     }
+
     /**
      * Zieht karte nach
      */
     public String pull(){
         return"";
     }
+
     public int getTotalCards(){
         int cards = 1;
         return cards;
@@ -225,12 +227,14 @@ public class MainGui extends javax.swing.JFrame
         int a = mainWindow2.getTotalCrads();
         return a;
     }
+
     /**
      * Gibt den Namen
      */
     public String getPName(){
         return pName;
     }
+
     /**
      * Gibt den Code
      */

@@ -561,7 +561,7 @@ public class MainWindow extends javax.swing.JPanel
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt)                                         
     {                                             
         if (block() == false){
-            mg.popup();
+            mg.popup(2);
         }
     }                                        
 
@@ -672,7 +672,7 @@ public class MainWindow extends javax.swing.JPanel
                 jTextField3.setText(Integer.toString(cards));
             }
         }
-        if (place == "3"){
+        if (place == "4"){
             int cards = Integer.parseInt(jTextField1.getText());
             if (cards != 0){
                 cards--;
