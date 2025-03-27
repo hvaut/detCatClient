@@ -1,28 +1,35 @@
 
-
 public class DCClient extends Client {
-
     private int pile;
     private boolean joined;
+    
+    private List<String> cards;
+
     private String turn;
     private List<String> players;
     private MainGui mg;
 
     public DCClient(String ip, int port) {
         super(ip, port);
+
+        
+        cards = new List<String>();
+
+
+        
         players = new List<String>();
+        //List<String> players = new List();     
         //List<String> players = new List();
     }
 
     public void processMessage(String message) {
         String[] data = message.split(" ");
-        
         // make sure the array is not empty
         if (data.length < 1) {
             send("-ERR Wrong command");
             return;
         }
-        
+
         // handle every command
         if (data[0].equalsIgnoreCase("+OK")){
             if (data [1].equalsIgnoreCase("Logged") && data.length == 3) {
@@ -56,7 +63,7 @@ public class DCClient extends Client {
                 return;
             }
         } else if (data[0].equalsIgnoreCase("-ERR")) {
-            
+
         } else if (data[0].equalsIgnoreCase("BOMB") && data.length == 2) {
             // Player received a bomb
         } else if (data[0].equalsIgnoreCase("PLACE") && data.length == 3) {
@@ -92,15 +99,8 @@ public class DCClient extends Client {
     }
 
     public List<String> getPlayers() {
-        //toFirst();
-        //String erg = "";
-        //while(hasAccess()){
-        //    erg = erg + getContent().getName();
-        //    next();
-        //}
-        //return erg;
 
-        return null;
+        return players;
     }
 
     public List<String> getCards() {
