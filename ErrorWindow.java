@@ -11,12 +11,14 @@
 public class ErrorWindow extends javax.swing.JPanel
 {
     private PopupWindow Pw;
+    String errormeldung;
     /**
      * Creates new form ErrorWindow
      */
-    public ErrorWindow()
+    public ErrorWindow(String pError)
     {
         initComponents();
+        errormeldung = pError;
     }
 
     /**
@@ -38,6 +40,7 @@ public class ErrorWindow extends javax.swing.JPanel
         jTextArea1.setRows(5);
         jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 10));
         jScrollPane1.setViewportView(jTextArea1);
+        jTextArea1.setText(errormeldung);
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
