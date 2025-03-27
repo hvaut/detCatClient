@@ -3,8 +3,10 @@ public class DCClient extends Client {
     private int pile;
     private boolean joined;
 
+    
     private List<String> cards;
 
+    
     private String turn;
     private List<String> players;
 
@@ -12,16 +14,17 @@ public class DCClient extends Client {
     public DCClient(String ip, int port) {
         super(ip, port);
 
+        
         cards = new List<String>();
 
 
+        
         players = new List<String>();
         //List<String> players = new List();       
         //List<String> players = new List();
     }
 
     public void processMessage(String message) {
-
         String[] data = message.split(" ");
         // make sure the array is not empty
         if (data.length < 1) {
