@@ -2,11 +2,9 @@
 public class DCClient extends Client {
     private int pile;
     private boolean joined;
-
     
     private List<String> cards;
 
-    
     private String turn;
     private List<String> players;
 
@@ -20,7 +18,7 @@ public class DCClient extends Client {
 
         
         players = new List<String>();
-        //List<String> players = new List();       
+        //List<String> players = new List();     
         //List<String> players = new List();
     }
 
