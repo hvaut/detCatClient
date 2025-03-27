@@ -139,6 +139,11 @@ public class MainGui extends javax.swing.JFrame
         return p1+"-"+p2+"-"+p3;
     } //Spielerübergabe von Client, als Liste oder Array oder so?
     
+    public void error(){
+        
+    }
+    
+    
     /**
      * Anzahl der Karten aller Spieler
      */
@@ -152,7 +157,7 @@ public class MainGui extends javax.swing.JFrame
     public int next(){
         if (i == 4){i = 1;}else{i++;}
         return i;
-    }
+    } // welcher spieler ist dran gerade
 
     public String place(){
         String akt = mainWindow2.aktCrad();
