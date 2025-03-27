@@ -80,7 +80,7 @@ public class DeathWindow extends javax.swing.JPanel
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)                                         
     {                                             
-        // TODO add your handling code here:
+        Pw.setVisible(false);
     }                                        
     public PopupWindow getPw()
     {
