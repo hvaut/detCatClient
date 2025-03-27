@@ -32,7 +32,7 @@ public class PopupWindow extends javax.swing.JFrame
     {
 
         DeathWindow = new DeathWindow();
-        ErrorWindow = new ErrorWindow();
+        ErrorWindow = new ErrorWindow("");
         DefuseWindow = new DefuseWindow();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
