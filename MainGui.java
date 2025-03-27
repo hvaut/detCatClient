@@ -105,9 +105,10 @@ public class MainGui extends javax.swing.JFrame
     /**
      * Übergibt welches Popupfenster geöffnet werden soll
      */
-    public int popup(){
-        Pw.switchPanel();
-        return 3;
+    public void popup(){
+        Pw = new PopupWindow();
+        Pw.setVisible(true);
+        Pw.switchPanel(2);
     }
 
     /**

@@ -11,6 +11,7 @@ import java.awt.CardLayout;
 public class PopupWindow extends javax.swing.JFrame
 {
     private PopupWindow Pw;
+    private MainGui mg;
     /**
      * Creates new form DetonatingCats
      */
@@ -91,16 +92,9 @@ public class PopupWindow extends javax.swing.JFrame
     /**
      * switcht zwischen den Pannels
      */
-    void switchPanel()
+    public void switchPanel(int akt)
     {   
-        if (io == true){if (akt == 1){
-                akt++;
-            }else{
-                akt--;
-            }
-            ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "card"+akt);
-        }
-
+        ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "card"+akt);
     }
 
     /**
