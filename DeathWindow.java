@@ -10,7 +10,7 @@
  */
 public class DeathWindow extends javax.swing.JPanel
 {
-
+    private PopupWindow Pw;
     /**
      * Creates new form ErrorWindow
      */
@@ -82,7 +82,14 @@ public class DeathWindow extends javax.swing.JPanel
     {                                             
         // TODO add your handling code here:
     }                                        
-
+    public PopupWindow getPw()
+    {
+        return Pw;
+    }
+    public void setPw(PopupWindow Pw)
+    {
+        this.Pw = Pw;
+    }
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton3;
