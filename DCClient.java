@@ -8,9 +8,12 @@ public class DCClient extends Client {
     private String turn;
     private List<String> players;
 
+
     public DCClient(String ip, int port) {
         super(ip, port);
+
         cards = new List<String>();
+
 
         players = new List<String>();
         //List<String> players = new List();       
