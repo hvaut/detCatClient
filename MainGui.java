@@ -80,6 +80,7 @@ public class MainGui extends javax.swing.JFrame
 
     // Variables declaration - do not modify                     
     private LoginWindow loginWindow1;
+    private PopupWindow Pw;
     private MainWindow mainWindow2;
     // End of variables declaration                   
     private int akt = 1;
@@ -99,6 +100,15 @@ public class MainGui extends javax.swing.JFrame
             ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "card"+akt);
         }
 
+    }
+    
+    /**
+     * Übergibt welches Popupfenster geöffnet werden soll
+     */
+    public void popup(){
+        Pw = new PopupWindow();
+        Pw.setVisible(true);
+        Pw.switchPanel(2);
     }
 
     /**
@@ -127,7 +137,7 @@ public class MainGui extends javax.swing.JFrame
         String p2 = "Lumin007";
         String p3 = "Ross";
         return p1+"-"+p2+"-"+p3;
-    }
+    } //Spielerübergabe von Client, als Liste oder Array oder so?
     
     /**
      * Anzahl der Karten aller Spieler
@@ -137,7 +147,7 @@ public class MainGui extends javax.swing.JFrame
         int p2 = 2;
         int p3 = 3;
         return p1+"-"+p2+"-"+p3;
-    }
+    } //Übergabe von Client, wie viele Karten jeder hat
     int i = 1;
     public int next(){
         if (i == 4){i = 1;}else{i++;}
