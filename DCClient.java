@@ -4,6 +4,8 @@ public class DCClient extends Client {
     
     private int pile;
     private boolean joined;
+    private int playerCount;
+    private int cardCount;
     public DCClient(String ip, int port) {
         super(ip, port);
         
