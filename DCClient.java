@@ -4,25 +4,17 @@ public class DCClient extends Client {
 
     private int pile;
     private boolean joined;
-<<<<<<< HEAD
     private String turn;
     private List<String> players;
 
 
-=======
->>>>>>> 836d0a942212db421bb2196b418cc262dd0df6ab
     public DCClient(String ip, int port) {
         super(ip, port);
-<<<<<<< HEAD
         players = new List<String>();
         //List<String> players = new List();
-=======
-        
->>>>>>> 836d0a942212db421bb2196b418cc262dd0df6ab
     }
 
     public void processMessage(String message) {
-<<<<<<< HEAD
         //String[] data = message.split(" ");
         //array isn´t empty
         //if (data.length < 1) {
@@ -38,7 +30,6 @@ public class DCClient extends Client {
 
         //}
 
-=======
         String[] data = message.split(" ");
         
         // make sure the array is not empty
@@ -105,7 +96,6 @@ public class DCClient extends Client {
             send("-ERR Wrong command");
             return;
         }
->>>>>>> 836d0a942212db421bb2196b418cc262dd0df6ab
     }
 
     public void drawCard() {
