@@ -4,10 +4,9 @@ public class DCClient extends Client {
     
     private int pile;
     private boolean joined;
-    
-
     public DCClient(String ip, int port) {
         super(ip, port);
+        
     }
 
     public void processMessage(String message) {
@@ -46,8 +45,8 @@ public class DCClient extends Client {
         return 0;
     }
 
-    public int getPile() {
-        return 0;
+    public int getPile() { 
+        return pile;
     }
 
 }
