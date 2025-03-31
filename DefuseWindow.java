@@ -105,7 +105,7 @@ public class DefuseWindow extends javax.swing.JPanel
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)                                         
     {       
-        
+        Pw.insertCard(jSlider1.getValue()); 
         Pw.setVisible(false);
     }                                        
     
@@ -113,10 +113,6 @@ public class DefuseWindow extends javax.swing.JPanel
     {                                                
         // TODO add your handling code here:
     }                                           
-    
-    public int getSliderPosition(){
-        return jSlider1.getValue();
-    }
     
     public PopupWindow getPw()
     {

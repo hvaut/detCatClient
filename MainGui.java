@@ -29,7 +29,6 @@ public class MainGui extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents()
     {
-
         loginWindow1 = new LoginWindow();
         mainWindow2 = new MainWindow();
 
@@ -141,7 +140,6 @@ public class MainGui extends javax.swing.JFrame
 
     public void error(String pError){
         popup(2);
-        
     }
 
     /**
@@ -241,5 +239,16 @@ public class MainGui extends javax.swing.JFrame
     public int getCode(){
         int a = Integer.parseInt(code);
         return a;
+    }
+
+    /**
+     * Gibt die Stelle der eingefügten Karte an
+     */
+    public void insertCard(int insert){ 
+        //return insert;
+        int cards = 67;
+        double count = (double)cards*insert/100;
+        int a = (int) Math.round(count);
+        System.out.print(a);
     }
 }

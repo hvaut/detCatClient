@@ -561,7 +561,7 @@ public class MainWindow extends javax.swing.JPanel
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt)                                         
     {                                             
         if (block() == false){
-            mg.popup(2);
+            mg.popup(3);
         }
     }                                        
 
