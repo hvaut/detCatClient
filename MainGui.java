@@ -81,6 +81,7 @@ public class MainGui extends javax.swing.JFrame
     private LoginWindow loginWindow1;
     private PopupWindow Pw;
     private MainWindow mainWindow2;
+    private Client client;
     // End of variables declaration                   
     private int akt = 1;
     boolean io = false;
@@ -159,6 +160,7 @@ public class MainGui extends javax.swing.JFrame
 
     public String place(){
         String akt = mainWindow2.aktCrad();
+        placeCard(akt);
         return akt;
     }
     int stack = 78;
@@ -177,8 +179,8 @@ public class MainGui extends javax.swing.JFrame
      */
     public void login()
     {
-        pName = loginWindow1.getPName();
-        code = loginWindow1.getCode();
+        pName = loginWindow1.setPName();
+        code = loginWindow1.setCode();
         mainWindow2.setName();
         mainWindow2.setUiCards();
         guiUpdate();
@@ -217,7 +219,17 @@ public class MainGui extends javax.swing.JFrame
         int cards = 1;
         return cards;
     }
-    // für daten übergabe(Client)
+    
+    /**
+     * Gibt die Stelle der eingefügten Karte an
+     */
+    public void insertCard(int insert){ 
+        int cards = 67;
+        double count = (double)cards*insert/100;
+        int a = (int) Math.round(count);
+        //client.insert(a);
+    }
+    // für daten übergabe(Client/Gui)
     /**
      * Gibt die gesamte Karten Anzahl
      */
@@ -229,26 +241,32 @@ public class MainGui extends javax.swing.JFrame
     /**
      * Gibt den Namen
      */
-    public String getPName(){
+    public String setPName(String name){
         return pName;
+        //Client.setPName(name);
     }
 
     /**
      * Gibt den Code
      */
-    public int getCode(){
+    public int setCode(String code){
         int a = Integer.parseInt(code);
         return a;
+        //Client.setCode(name);
     }
-
-    /**
-     * Gibt die Stelle der eingefügten Karte an
-     */
-    public void insertCard(int insert){ 
-        //return insert;
-        int cards = 67;
-        double count = (double)cards*insert/100;
-        int a = (int) Math.round(count);
-        System.out.print(a);
+    
+    public void placeCard(String card){
+        int a = Integer.parseInt(card);
+        if (a == 1){
+            //Client.placeCard(Defuse); 
+        }
+        if (a == 2){
+            //Client.placeCard(Skip);
+        }
+        if (a == 3){
+            //Client.placeCard(Cat); 
+        }
     }
+    
+    
 }

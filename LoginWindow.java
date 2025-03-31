@@ -154,7 +154,7 @@ public class LoginWindow extends javax.swing.JPanel
     {                                                
         // TODO add your handling code here:
     }
-    
+
     /**
      * Wechselt die SwitchPain zum anderen Fenster
      */
@@ -162,9 +162,12 @@ public class LoginWindow extends javax.swing.JPanel
     {                                             
         if(mg != null) {
             mg.switchPanel();
+            setPName();
+            setCode();
         }
+
     }    
-    
+
     /**
      * Wechselt die SwitchPain zum anderen Fenster
      */
@@ -172,6 +175,8 @@ public class LoginWindow extends javax.swing.JPanel
     {                                             
         if(mg != null) {
             mg.switchPanel();
+            setPName();
+            setCode();
         }
     }                                        
     String pName = "";    
@@ -181,16 +186,18 @@ public class LoginWindow extends javax.swing.JPanel
         pName = jTextField1.getText(); 
         pCode = jTextField2.getText();
     }
-    
-    public String getPName()
+
+    public String setPName()
     {
         input();
+        mg.setPName(pName);
         return pName;
     }
 
-    public String getCode()
+    public String setCode()
     {
         input();
+        mg.setCode(pCode);
         return pCode;
     }
 
@@ -203,7 +210,7 @@ public class LoginWindow extends javax.swing.JPanel
     {
         this.mg = mg;
     }
-    
+
     public void loginError(){
         int error = mg.loginError();
         if(error == 1){
