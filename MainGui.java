@@ -15,13 +15,16 @@ public class MainGui extends javax.swing.JFrame
     /**
      * Creates new form DetonatingCats
      */
-    public MainGui(DCClient dcClient)
+    public MainGui()
     {
         initComponents();
         initializeEvents();
-        this.dcClient = dcClient;
     }
 
+    public void setupClient(DCClient dcClient){
+        dcClient = dcClient;
+    }
+    
     /**
     * This method is called from within the constructor to initialize the form.
     * WARNING: Do NOT modify this code. The content of this method is always
