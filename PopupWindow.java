@@ -11,7 +11,6 @@ import java.awt.CardLayout;
 public class PopupWindow extends javax.swing.JFrame
 {
     private PopupWindow Pw;
-    private MainGui mg;
     /**
      * Creates new form DetonatingCats
      */
@@ -34,7 +33,8 @@ public class PopupWindow extends javax.swing.JFrame
         DeathWindow = new DeathWindow();
         ErrorWindow = new ErrorWindow("");
         DefuseWindow = new DefuseWindow();
-
+        MainGui = new MainGui();
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
         getContentPane().add(DeathWindow, "card1");
@@ -80,11 +80,12 @@ public class PopupWindow extends javax.swing.JFrame
                     new PopupWindow().setVisible(true);
             });
     }
-
+    
     // Variables declaration - do not modify                     
     private DeathWindow DeathWindow;
     private DefuseWindow DefuseWindow;
     private ErrorWindow ErrorWindow;
+    private MainGui MainGui;
     // End of variables declaration                   
     private int akt = 1;
     boolean io = false;
@@ -105,5 +106,9 @@ public class PopupWindow extends javax.swing.JFrame
         DeathWindow.setPw(this);
         ErrorWindow.setPw(this);
         DefuseWindow.setPw(this);
+    }
+    
+    public void insertCard(int pPosition){
+        MainGui.insertCard(pPosition);
     }
 }

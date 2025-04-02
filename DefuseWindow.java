@@ -104,15 +104,16 @@ public class DefuseWindow extends javax.swing.JPanel
     }// </editor-fold>                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt)                                         
-    {                                             
+    {       
+        Pw.insertCard(jSlider1.getValue()); 
         Pw.setVisible(false);
     }                                        
-
+    
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt)                                            
     {                                                
         // TODO add your handling code here:
     }                                           
-
+    
     public PopupWindow getPw()
     {
         return Pw;
