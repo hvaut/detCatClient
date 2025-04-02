@@ -20,6 +20,9 @@ public class DCClient extends Client {
         //List<String> players = new List();
     }
 
+    /**
+     * Methode processMessage
+     */
     public void processMessage(String pMessage) {
         String[] data = pMessage.split(" ");
         // make sure the array is not empty
