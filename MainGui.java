@@ -255,6 +255,9 @@ public class MainGui extends javax.swing.JFrame
         //Client.setCode(name);
     }
     
+    /**
+     * Spielt eine Karte
+     */
     public void placeCard(String card){
         int a = Integer.parseInt(card);
         if (a == 1){
