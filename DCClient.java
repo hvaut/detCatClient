@@ -18,6 +18,7 @@ public class DCClient extends Client {
         players = new List<String>();
         //List<String> players = new List();     
         //List<String> players = new List();
+        gui = new MainGui(this);
     }
 
     /**
