@@ -23,6 +23,10 @@ public class DCClient extends Client {
 
     /**
      * Methode processMessage
+     * 
+     * @return Der Rückgabewert
+     * 
+     * Aufgabe: Alle Fälle implementieren
      */
     public void processMessage(String pMessage) {
         String[] data = pMessage.split(" ");
@@ -115,10 +119,12 @@ public class DCClient extends Client {
         
     }
 
+    /**
+     * Ist die im Client nötig?
+     */
     public List<String> getPlayers() {
         return players;
     }
-    
     
     /**
      * Methode addPlayer
@@ -159,10 +165,16 @@ public class DCClient extends Client {
         return players;
     }
 
+    /**
+     * Ist die im Client nötig?
+     */
     public String getTurn() {
         return turn;
     }
 
+    /**
+     * Ist die im Client nötig?
+     */
     public int getPile() { 
         return pile;
     }
