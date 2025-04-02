@@ -18,8 +18,16 @@ public class DCClient extends Client {
         players = new List<String>();
         //List<String> players = new List();     
         //List<String> players = new List();
+        gui = new MainGui(this);
     }
 
+    /**
+     * Methode processMessage
+     * 
+     * @return Der Rückgabewert
+     * 
+     * Aufgabe: Alle Fälle implementieren
+     */
     public void processMessage(String pMessage) {
         String[] data = pMessage.split(" ");
         // make sure the array is not empty
@@ -108,18 +116,22 @@ public class DCClient extends Client {
     }
 
     public void playCard() {
-
+        
     }
 
+    /**
+     * Ist die im Client nötig?
+     */
     public List<String> getPlayers() {
         return players;
     }
-    
     
     /**
      * Methode addPlayer
      *
      * @param player Player hinzufügen
+     * 
+     * Aufgabe: Liste durchgehen und einen Spieler hinzufügen
      */
     public void addPlayer(String player) {
         players.append(player);
@@ -129,6 +141,8 @@ public class DCClient extends Client {
      * Removes a player
      * 
      * @param player player to remove
+     * 
+     * Aufgabe: liste aller Spieler durchgehen und den ausgewählten Spieler aus der Liste entfernen
      */
     public void removePlayer(String player) {
         players.toFirst();
@@ -144,15 +158,23 @@ public class DCClient extends Client {
      * Methode getCards
      *
      * @return Der Rückgabewert
+     * 
+     * Aufgabe: die Liste ausgeben
      */
     public List<String> getCards() {
         return players;
     }
 
+    /**
+     * Ist die im Client nötig?
+     */
     public String getTurn() {
         return turn;
     }
 
+    /**
+     * Ist die im Client nötig?
+     */
     public int getPile() { 
         return pile;
     }

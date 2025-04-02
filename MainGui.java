@@ -10,14 +10,16 @@ import java.awt.CardLayout;
  */
 public class MainGui extends javax.swing.JFrame
 {
+    DCClient dcClient;
 
     /**
      * Creates new form DetonatingCats
      */
-    public MainGui()
+    public MainGui(DCClient dcClient)
     {
         initComponents();
         initializeEvents();
+        this.dcClient = dcClient;
     }
 
     /**
