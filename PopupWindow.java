@@ -6,7 +6,7 @@
 import java.awt.CardLayout;
 /**
  *
- * @author Lumin007 & tali-yuh
+ * @author Lumin007
  */
 public class PopupWindow extends javax.swing.JFrame
 {
@@ -19,7 +19,11 @@ public class PopupWindow extends javax.swing.JFrame
         initComponents();
         initializeEvents();
     }
-
+    
+    public void setupPopup(MainGui mainGui){
+        mainGui = mainGui;
+    }
+    
     /**
     * This method is called from within the constructor to initialize the form.
     * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +37,6 @@ public class PopupWindow extends javax.swing.JFrame
         DeathWindow = new DeathWindow();
         ErrorWindow = new ErrorWindow("");
         DefuseWindow = new DefuseWindow();
-        MainGui = new MainGui();
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
