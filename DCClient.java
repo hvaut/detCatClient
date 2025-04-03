@@ -19,6 +19,7 @@ public class DCClient extends Client {
         //List<String> players = new List();
         gui = new MainGui();
         gui.setupClient(this);
+        gui.setVisible(true);
     }
 
     /**
