@@ -22,7 +22,7 @@ public class MainGui extends javax.swing.JFrame
     }
 
     public void setupClient(DCClient dcClient){
-        dcClient = dcClient;
+        this.dcClient = dcClient;
     }
     
     /**
