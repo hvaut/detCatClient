@@ -614,12 +614,11 @@ public class MainWindow extends javax.swing.JPanel
         }
     } 
 
-    public void setName(){
-        String players = mg.getPlayers();
-        String[] split = players.split("-");
-        jTextField8.setText(split[0]);
-        jTextField10.setText(split[1]);
-        jTextField12.setText(split[2]);
+    public void setName(String names){
+        String[] players = names.split("-");
+        jTextField8.setText(players[0]);
+        jTextField10.setText(players[1]);
+        jTextField12.setText(players[2]);
     }
 
     public void setCards(){

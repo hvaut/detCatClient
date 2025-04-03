@@ -6,7 +6,7 @@
 import java.awt.CardLayout;
 /**
  *
- * @author Lumin007 & tali-yuh
+ * @author Lumin007 
  */
 public class MainGui extends javax.swing.JFrame
 {
@@ -24,7 +24,7 @@ public class MainGui extends javax.swing.JFrame
     public void setupClient(DCClient dcClient){
         this.dcClient = dcClient;
     }
-    
+
     /**
     * This method is called from within the constructor to initialize the form.
     * WARNING: Do NOT modify this code. The content of this method is always
@@ -138,12 +138,24 @@ public class MainGui extends javax.swing.JFrame
     /**
      * für die Spieleranzeige in der GUI
      */
-    public String getPlayers(){
-        String p1 = "Bob";
-        String p2 = "Lumin007";
-        String p3 = "Ross";
-        return p1+"-"+p2+"-"+p3;
-    } //Spielerübergabe von Client, als Liste oder Array oder so?
+    public void setPlayers(String[] names){
+        String name = "";//dcClient.getName();
+        String namesString = "";
+        for (int i = 0;i<4;i++){
+            if(names[i] != name){
+                if(namesString.equals("") ){
+                    namesString += names[i];
+                }
+                else{
+                    namesString += " " + names [i];
+                }
+            }
+            String p1 = names[0];
+            String p2 = names[1];
+            String p3 = names[2];
+            mainWindow2.setName(p1+"-"+p2+"-"+p3);
+        } //Spielerübergabe von Client, als Liste oder Array oder so?
+    }
 
     public void error(String pError){
         popup(2);
@@ -187,10 +199,8 @@ public class MainGui extends javax.swing.JFrame
     {
         pName = loginWindow1.setPName();
         code = loginWindow1.setCode();
-        mainWindow2.setName();
         mainWindow2.setUiCards();
         guiUpdate();
-        mainWindow2.setName();
         mainWindow2.setCards();
         mainWindow2.showProgress();
         loggedin = true;
@@ -225,15 +235,12 @@ public class MainGui extends javax.swing.JFrame
         int cards = 1;
         return cards;
     }
-    
+
     /**
      * Gibt die Stelle der eingefügten Karte an
      */
     public void insertCard(int insert){ 
-        int cards = 67;
-        double count = (double)cards*insert/100;
-        int a = (int) Math.round(count);
-        //client.insert(a);
+        //client.insert(insert);
     }
     // für daten übergabe(Client/Gui)
     /**
@@ -248,8 +255,8 @@ public class MainGui extends javax.swing.JFrame
      * Gibt den Namen
      */
     public String setPName(String name){
+        dcClient.setName(name);
         return pName;
-        //Client.setPName(name);
     }
 
     /**
@@ -257,10 +264,10 @@ public class MainGui extends javax.swing.JFrame
      */
     public int setCode(String code){
         int a = Integer.parseInt(code);
+        //dcClient.setCode(a);
         return a;
-        //Client.setCode(name);
     }
-    
+
     /**
      * Spielt eine Karte
      */
@@ -276,6 +283,5 @@ public class MainGui extends javax.swing.JFrame
             //Client.placeCard(Cat); 
         }
     }
-    
-    
+
 }
