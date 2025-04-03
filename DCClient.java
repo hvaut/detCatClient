@@ -53,15 +53,15 @@ public class DCClient extends Client {
                     // Game hosted
                 } else if (data[2].equalsIgnoreCase("starts")) {
                     // Game starts
-                    
+                    //brauche die Anzahl an Karten ohne Defuse und Bomben karten
                     //fill pile
                     pile = 80;
                     players.toFirst();
-                    //add 1 defuse card + 7 random
+                    //add (1 defuse card) + 7 random
                     int playerCount = 0;
                     while(players.hasAccess()){
                         playerCount++;
-                        pile = pile -8;
+                        pile = pile -7;
                         players.next();
                     }
                     
