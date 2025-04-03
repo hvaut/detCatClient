@@ -160,7 +160,7 @@ public class DCClient extends Client {
      *
      * @return Der Rückgabewert
      * 
-     * Aufgabe: die Liste ausgeben
+     * Aufgabe: die Liste als String ausgeben
      */
     public List<String> getCards() {
         return players;
