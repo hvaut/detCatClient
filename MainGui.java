@@ -112,6 +112,7 @@ public class MainGui extends javax.swing.JFrame
      */
     public void popup(int pA){
         Pw = new PopupWindow();
+        Pw.setupPopup(this);
         Pw.setVisible(true);
         Pw.switchPanel(pA);
     }
