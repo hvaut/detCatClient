@@ -8,12 +8,12 @@ public class DCClient extends Client {
     private String turn;
     private List<String> players;
     private MainGui gui;
+    private String name;
 
     public DCClient(String ip, int port) {
         super(ip, port);
 
         cards = new List<String>();
-
         players = new List<String>();
         //List<String> players = new List();     
         //List<String> players = new List();
@@ -88,6 +88,7 @@ public class DCClient extends Client {
             gui.error(pMessage);
         } else if (data[0].equalsIgnoreCase("BOMB") && data.length == 2) {
             // Player received a bomb
+            if(data[1].equals(name)){}
         } else if (data[0].equalsIgnoreCase("PLACE") && data.length == 3) {
             // Placing a card
 
@@ -114,7 +115,11 @@ public class DCClient extends Client {
             return;
         }
     }
-
+    
+    public void setName(String name){
+        this.name=name;
+    }
+    
     public void drawCard() {
         send("TAKE");
     }
