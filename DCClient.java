@@ -1,22 +1,19 @@
 
 public class DCClient extends Client {
-    private int pile;
-    private boolean joined;
-
-    private int[] cards;
-
-    private String turn;
+    
     private List<String> players;
+    private String name, turn;
+    
+    private boolean joined;
+    private int pile;
+    
     private MainGui gui;
-    private String name;
 
     public DCClient(String ip, int port) {
         super(ip, port);
 
-        
         players = new List<String>();
-        //List<String> players = new List();     
-        //List<String> players = new List();
+        
         gui = new MainGui();
         gui.setupClient(this);
         gui.setVisible(true);
@@ -88,8 +85,10 @@ public class DCClient extends Client {
             gui.error(pMessage);
         } else if (data[0].equalsIgnoreCase("BOMB") && data.length == 2) {
             // Player received a bomb
-            if(data[1].equals(name)){
-                
+            if(data[1].equalsIgnoreCase(name)){
+                if(Cards.DEFUSE.getCount() >= 1) {
+                    gui.popup(3);
+                }
             }
         } else if (data[0].equalsIgnoreCase("PLACE") && data.length == 3) {
             // Placing a card
@@ -106,6 +105,9 @@ public class DCClient extends Client {
             // A player left
         } else if (data[0].equalsIgnoreCase("DEATH") && data.length == 2) {
             // A player died
+            if (data[1].equalsIgnoreCase(name)) {
+                gui.popup(1);
+            }
         } else if (data[0].equalsIgnoreCase("WIN") && data.length == 2) {
             // Winner is announced
         } else if (data[0].equalsIgnoreCase("CARD") && data.length == 2) {
@@ -118,6 +120,10 @@ public class DCClient extends Client {
         }
     }
     
+    public String getName() {
+        return name;
+    }
+    
     public void setName(String name){
         this.name=name;
     }
@@ -125,8 +131,12 @@ public class DCClient extends Client {
     public void drawCard() {
         send("TAKE");
     }
+    
+    public void defuseCard(int indexInPercent) {
+        send("DEFUSE " + indexInPercent);
+    }
 
-    public void playCard() {
+    public void playCard(Cards card) {
 
     }
 
