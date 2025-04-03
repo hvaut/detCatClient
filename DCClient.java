@@ -3,18 +3,17 @@ public class DCClient extends Client {
     private int pile;
     private boolean joined;
 
-    private List<String> cards;
+    private int[] cards;
 
     private String turn;
     private List<String> players;
     private MainGui gui;
-
+    private String name;
 
     public DCClient(String ip, int port) {
         super(ip, port);
 
-        cards = new List<String>();
-
+        
         players = new List<String>();
         //List<String> players = new List();     
         //List<String> players = new List();
@@ -65,7 +64,7 @@ public class DCClient extends Client {
                         pile = pile -7;
                         players.next();
                     }
-                    
+
                     for(int i = 0; i < playerCount - 1; i++){
                         pile++;
                     }
@@ -89,12 +88,18 @@ public class DCClient extends Client {
             gui.error(pMessage);
         } else if (data[0].equalsIgnoreCase("BOMB") && data.length == 2) {
             // Player received a bomb
+            if(data[1].equals(name)){
+                
+            }
         } else if (data[0].equalsIgnoreCase("PLACE") && data.length == 3) {
             // Placing a card
+
         } else if (data[0].equalsIgnoreCase("TAKE") && data.length == 2) {
             // Taking a card
+
         } else if (data[0].equalsIgnoreCase("TURN") && data.length == 2) {
             // Shows currently active player
+            send("PILE");
         } else if (data[0].equalsIgnoreCase("JOIN") && data.length == 2) {
             // A player joined
         } else if (data[0].equalsIgnoreCase("QUIT") && data.length == 2) {
@@ -112,13 +117,17 @@ public class DCClient extends Client {
             return;
         }
     }
-
+    
+    public void setName(String name){
+        this.name=name;
+    }
+    
     public void drawCard() {
-
+        send("TAKE");
     }
 
     public void playCard() {
-        
+
     }
 
     /**
@@ -127,7 +136,7 @@ public class DCClient extends Client {
     public List<String> getPlayers() {
         return players;
     }
-    
+
     /**
      * Methode addPlayer
      *
@@ -138,7 +147,7 @@ public class DCClient extends Client {
     public void addPlayer(String player) {
         players.append(player);
     }
-    
+
     /**
      * Removes a player
      * 
