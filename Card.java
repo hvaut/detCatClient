@@ -1,17 +1,13 @@
 
-public enum Cards
-{
+public enum Card {
 
     CAT("CAT"),
-
     SKIP("SKIP"),
-
     DEFUSE("DEFUSE"),
-
     DET_CAT("DET");
 
-    public static Cards getCard(String string) {
-        for (Cards card : values()) {
+    public static Card getCard(String string) {
+        for (Card card : values()) {
             if (card.getId().equalsIgnoreCase(string))
                 return card;
         }
@@ -21,7 +17,7 @@ public enum Cards
     private String id;
     private int count;
 
-    private Cards(String pId) {
+    Card(String pId) {
         id = pId;
         count = 0;
     }
@@ -37,4 +33,5 @@ public enum Cards
     public int getCount() {
         return count;
     }
+
 }
