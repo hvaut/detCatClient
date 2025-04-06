@@ -83,12 +83,13 @@ public class ErrorPopup extends JPanel {
         popupWindow.dispose();
     }
 
+    /**
+     * Setzt die Fehlermeldung
+     *
+     * @param message die Fehlermeldung
+     */
     public void setErrorMessage(String message) {
         jLabel2.setText("<html>" + message + "</html>");
-    }
-
-    public PopupWindow getPopupWindow() {
-        return popupWindow;
     }
 
 }

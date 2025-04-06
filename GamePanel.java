@@ -502,6 +502,11 @@ public class GamePanel extends JPanel {
         mainWindow.switchToLogin();
     }
 
+    /**
+     * Aktualisiert die Spieler Panels in der Game GUI
+     *
+     * @param useCache verwendet die zwischengespeicherten Spielerdaten
+     */
     public void updateNamesOrdered(boolean useCache) {
         jTextField8.setText("- Empty -");
         jTextField9.setText("");
@@ -555,10 +560,18 @@ public class GamePanel extends JPanel {
         }
     }
 
+    /**
+     * Aktualisiert die letzte gelegte Karte
+     *
+     * @param card die Karte die gelegt wurde
+     */
     public void updatePlacedCard(Card card) {
         jButton9.setIcon(card != null ? new ImageIcon(getClass().getResource("images/" + card.name().toLowerCase() + ".jpg")) : null);
     }
 
+    /**
+     * Aktualisiert die Anzahl der Karten
+     */
     public void updateCardCounts() {
         DecimalFormat decimalFormat = new DecimalFormat("#,###", new DecimalFormatSymbols(Locale.GERMAN));
         jTextField1.setText(decimalFormat.format(Card.values()[0].getCount()));
@@ -570,11 +583,19 @@ public class GamePanel extends JPanel {
         jTextField7.setText(decimalFormat.format(Card.DEFUSE.getCount())); */
     }
 
+    /**
+     * Aktualisiert die Progressbar's, welche die Anzahl an übrigen Karten wiederspiegelt
+     */
     public void updateProgress() {
         jProgressBar1.setValue((int) (((float) mainWindow.getClient().getPile() / (float) mainWindow.getClient().getFirstPile()) * 100));
         jProgressBar2.setValue((int) (((float) mainWindow.getClient().getPlaced() / (float) mainWindow.getClient().getFirstPile()) * 100));
     }
 
+    /**
+     * Markiert den Spieler, der gerade am Zug ist
+     *
+     * @param player der jeweilige Spieler
+     */
     public void markPlayer(String player) {
         // find index for player
         int i = 0;
@@ -595,6 +616,9 @@ public class GamePanel extends JPanel {
         }
     }
 
+    /**
+     * Setzt alle Spieler-Markierungen zurück
+     */
     public void resetPlayerMarkers() {
         jPanel1.setBorder(new LineBorder(new Color(255, 255, 255), 15, true));
         jPanel2.setBorder(new LineBorder(new Color(255, 255, 255), 15, true));
@@ -602,6 +626,11 @@ public class GamePanel extends JPanel {
         jPanel4.setBorder(new LineBorder(new Color(255, 255, 255), 15, true));
     }
 
+    /**
+     * Markiert die ausgewählte Karte zum legen
+     *
+     * @param i der Index der auszuwählenden Karte
+     */
     public void markCard(int i) {
         // reset previous markers
         resetCardMarkers();
@@ -617,6 +646,9 @@ public class GamePanel extends JPanel {
         }
     }
 
+    /**
+     * Setzt alle Karten-Markierungen zurück
+     */
     public void resetCardMarkers() {
         jButton1.setBorder(new LineBorder(new Color(255, 255, 255), 15, true));
         jButton2.setBorder(new LineBorder(new Color(255, 255, 255), 15, true));
@@ -627,6 +659,9 @@ public class GamePanel extends JPanel {
         jButton7.setBorder(new LineBorder(new Color(255, 255, 255), 15, true));
     }
 
+    /**
+     * Setzt alle Daten der Game GUI zurück
+     */
     public void reset() {
         resetCardMarkers();
         resetPlayerMarkers();
@@ -636,11 +671,8 @@ public class GamePanel extends JPanel {
             card.setCount(0);
         }
         updateCardCounts();
+        // reset names and the player cache
         updateNamesOrdered(false);
-    }
-
-    public MainWindow getMainWindow() {
-        return mainWindow;
     }
 
 }

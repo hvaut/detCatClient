@@ -159,6 +159,9 @@ public class DCClient extends Client {
         }
     }
 
+    /**
+     * Setzt alle Daten des Spiels zurück
+     */
     public void reset() {
         players = new List<>();
         turn = null;
@@ -168,53 +171,80 @@ public class DCClient extends Client {
         inGame = false;
     }
 
+    /**
+     * Setzt den Namen, den der Client verwendet
+     *
+     * @param pName der Name des Clients
+     */
     public void setName(String pName) {
         name = pName;
     }
 
+    /**
+     * Sendet an den Server, dass wir eine Karte nehmen
+     */
     public void takeCard() {
         send("TAKE");
     }
 
+    /**
+     * Sendet an den Server, dass wir eine Karte platzieren
+     *
+     * @param card die Karte, die platziert werden soll
+     */
     public void placeCard(Card card) {
         send("PLACE " + card.getId());
     }
 
+    /**
+     * Sendet an den Server, dass wir die Bombe entschärfen
+     *
+     * @param indexInPercent die Stelle, an welcher die Bombe in den Stapel zurückgelegt werden soll (in Prozent)
+     */
     public void defuseCard(int indexInPercent) {
         send("DEFUSE " + indexInPercent);
     }
 
+    /**
+     * Sendet an den Server, dass wir ein Spiel hosten
+     *
+     * @param pCode der Code des Spiels
+     */
     public void hostGame(String pCode) {
         send("LOGIN " + name);
         send("HOST " + pCode);
     }
 
+    /**
+     * Sendet an den Server, dass wir einem Spiel beitreten
+     *
+     * @param pCode der Code des Spiels
+     */
     public void joinGame(String pCode) {
         send("LOGIN " + name);
         send("JOIN " + pCode);
     }
 
+    /**
+     * Sendet an den Server, dass wir uns abmelden
+     */
     public void leaveGame() {
         send("LOGOUT");
     }
 
     /**
-     * Methode addPlayer
+     * Fügt einen Spieler hinzu
      *
-     * @param player Player hinzufügen
-     *
-     * Aufgabe: Liste durchgehen und einen Spieler hinzufügen
+     * @param player der Spieler, der hinzugefügt werden soll
      */
     public void addPlayer(String player) {
         players.append(new Player(player));
     }
 
     /**
-     * Removes a player
+     * Entfernt einen Spieler
      *
-     * @param player player to remove
-     *
-     * Aufgabe: liste aller Spieler durchgehen und den ausgewählten Spieler aus der Liste entfernen
+     * @param player der Spieler, der entfernt werden soll
      */
     public void removePlayer(String player) {
         players.toFirst();
@@ -227,6 +257,12 @@ public class DCClient extends Client {
         }
     }
 
+    /**
+     * Gibt den gesuchten Spieler zurück
+     *
+     * @param player der Name des Spielers
+     * @return der gesuchte Spieler
+     */
     public Player getPlayer(String player) {
         players.toFirst();
         while (players.hasAccess()) {
@@ -237,34 +273,75 @@ public class DCClient extends Client {
         return null;
     }
 
+    /**
+     * Gibt alle Spieler im aktuellen Spiel zurück
+     *
+     * @return die Liste aller Spieler
+     */
     public List<Player> getPlayers() {
         return players;
     }
 
+    /**
+     * Gibt den aktuellen Spieler, der am Zug ist zurück
+     * Falls keiner am Zug ist, wird null zurückgegeben
+     *
+     * @return der Spieler, der am Zug ist
+     */
     public String getTurn() {
         return turn;
     }
 
+    /**
+     * Gibt den Namen vom Client zurück
+     *
+     * @return gibt den Namen zurück
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gibt die totale Anzahl an Karten zurück, die zu Beginn auf dem Stapel liegen
+     *
+     * @return die Anzahl an Karten
+     */
     public int getFirstPile() {
         return firstPile;
     }
 
+    /**
+     * Gibt die aktuelle Anzahl an Karten auf dem Stapel zurück
+     *
+     * @return die Anzahl an Karten
+     */
     public int getPile() {
         return pile;
     }
 
+    /**
+     * Gibt die Anzahl an platzierten Karten an
+     *
+     * @return die Anzahl an Karten
+     */
     public int getPlaced() {
         return placed;
     }
 
+    /**
+     * Gibt zurück, ob wir am Zug sind
+     *
+     * @return ob die Bedingung erfüllt ist
+     */
     public boolean isTurn() {
         return turn.equalsIgnoreCase(name);
     }
 
+    /**
+     * Gibt zurück, ob wir in einem Spiel sind
+     *
+     * @return ob die Bedingung erfüllt ist
+     */
     public boolean isInGame() {
         return inGame;
     }

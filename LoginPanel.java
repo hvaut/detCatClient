@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -148,7 +143,7 @@ public class LoginPanel extends JPanel {
         }
     }
 
-    public boolean validateFields() {
+    private boolean validateFields() {
         boolean valid = true;
         // clear previous marks
         loginError(0);
@@ -165,7 +160,7 @@ public class LoginPanel extends JPanel {
         return valid;
     }
 
-    public void loginError(int loginError) {
+    private void loginError(int loginError) {
         switch (loginError) {
             case 1 -> jTextField1.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0), 3));
             case 2 -> jTextField2.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0), 3));
@@ -174,10 +169,6 @@ public class LoginPanel extends JPanel {
                 jTextField2.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0), 3));
             }
         }
-    }
-
-    public MainWindow getMainWindow() {
-        return mainWindow;
     }
 
 }

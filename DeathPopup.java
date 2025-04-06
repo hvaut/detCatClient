@@ -68,8 +68,4 @@ public class DeathPopup extends JPanel {
         popupWindow.dispose();
     }
 
-    public PopupWindow getPopupWindow() {
-        return popupWindow;
-    }
-
 }

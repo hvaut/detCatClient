@@ -7,8 +7,6 @@ import java.awt.*;
  */
 public class MainWindow extends JFrame {
 
-    private PopupWindow popupWindow;
-
     private LoginPanel loginPanel;
     private GamePanel gamePanel;
 
@@ -35,47 +33,76 @@ public class MainWindow extends JFrame {
         pack();
     }
 
+    /**
+     * Setzt das aktuelle Fenster auf Login
+     */
     public void switchToLogin() {
         ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "login");
     }
 
+    /**
+     * Setzt das aktuelle Fenster auf Game
+     */
     public void switchToGame() {
         ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "game");
     }
 
+    /**
+     * Erstellt ein Fenster mit einer Fehlermeldung
+     *
+     * @param pError die Fehlermeldung
+     */
     public void popupError(String pError) {
-        createPopup();
+        PopupWindow popupWindow = createPopup();
         popupWindow.switchPanelToError();
         popupWindow.getErrorPopup().setErrorMessage(pError);
     }
 
+    /**
+     * Erstellt ein Fenster mit einer Todesnachricht
+     */
     public void popupDeath() {
-        createPopup();
+        PopupWindow popupWindow = createPopup();
         popupWindow.switchPanelToDeath();
     }
 
+    /**
+     * Erstellt ein Fenster zum Entschärfen einer Bombe
+     */
     public void popupDefuse() {
-        createPopup();
+        PopupWindow popupWindow = createPopup();
         popupWindow.switchPanelToDefuse();
     }
 
-    private void createPopup() {
-        popupWindow = new PopupWindow(this);
+    private PopupWindow createPopup() {
+        PopupWindow popupWindow = new PopupWindow(this);
         popupWindow.setVisible(true);
-    }
-
-    public PopupWindow getPopupWindow() {
         return popupWindow;
     }
 
+    /**
+     * Gibt das Login Fenster zurück
+     *
+     * @return das Login Fenster
+     */
     public LoginPanel getLoginPanel() {
         return loginPanel;
     }
 
+    /**
+     * Gibt das Game Fenster zurück
+     *
+     * @return das Game Fenster
+     */
     public GamePanel getGamePanel() {
         return gamePanel;
     }
 
+    /**
+     * Gibt den Client zurück
+     *
+     * @return der Client
+     */
     public DCClient getClient() {
         return client;
     }

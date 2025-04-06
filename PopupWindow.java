@@ -35,30 +35,59 @@ public class PopupWindow extends JFrame {
         pack();
     }
 
+    /**
+     * Setzt das aktuelle Fenster auf Death
+     */
     public void switchPanelToDeath() {
         ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "death");
     }
 
+    /**
+     * Setzt das aktuelle Fenster auf Error
+     */
     public void switchPanelToError() {
         ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "error");
     }
 
+    /**
+     * Setzt das aktuelle Fenster auf Defuse
+     */
     public void switchPanelToDefuse() {
         ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "defuse");
     }
 
+    /**
+     * Gibt das Todesfenster zurück
+     *
+     * @return das Todesfenster
+     */
     public DeathPopup getDeathPopup() {
         return deathPopup;
     }
 
+    /**
+     * Gibt das Entschärfungsfenster zurück
+     *
+     * @return das Entschärfungsfenster
+     */
     public DefusePopup getDefusePopup() {
         return defusePopup;
     }
 
+    /**
+     * Gibt das Fehlerfenster zurück
+     *
+     * @return das Fehlerfenster
+     */
     public ErrorPopup getErrorPopup() {
         return errorPopup;
     }
 
+    /**
+     * Gibt das Hauptfenster zurück
+     *
+     * @return das Hauptfenster
+     */
     public MainWindow getMainWindow() {
         return mainWindow;
     }

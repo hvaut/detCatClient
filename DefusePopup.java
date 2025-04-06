@@ -26,12 +26,14 @@ public class DefusePopup extends JPanel {
 
         initComponents();
 
+        // necessary to defuse the card on closure of this window
         windowListener = new WindowAdapter() {
 
             @Override
             public void windowClosing(WindowEvent e) {
                 super.windowClosing(e);
 
+                // defuse the card
                 popupWindow.getMainWindow().getClient().defuseCard(jSlider1.getValue());
             }
 
@@ -108,9 +110,12 @@ public class DefusePopup extends JPanel {
     public void setVisible(boolean aFlag) {
         super.setVisible(aFlag);
 
+        // check whether this panel will be set to invisible
         if (aFlag) {
+            // hook the close listener
             popupWindow.addWindowListener(windowListener);
         } else {
+            // unhook the close listener
             popupWindow.removeWindowListener(windowListener);
         }
     }
@@ -121,15 +126,11 @@ public class DefusePopup extends JPanel {
     }
 
     private void jTextField1ActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
+        // ignored
     }
 
     private void jTextField2ActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    public PopupWindow getPopupWindow() {
-        return popupWindow;
+        // ignored
     }
 
 }
