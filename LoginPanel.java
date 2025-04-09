@@ -18,10 +18,10 @@ public class LoginPanel extends JPanel {
 
     public LoginPanel(MainWindow pMainWindow) {
         mainWindow = pMainWindow;
-
+        
         initComponents();
     }
-
+    
     private void initComponents() {
         jLabel2 = new JLabel();
         jTextField1 = new JTextField();
@@ -29,8 +29,6 @@ public class LoginPanel extends JPanel {
         jTextField2 = new JTextField();
         jButton1 = new JButton();
         jButton2 = new JButton();
-
-        setBackground(new Color(255, 255, 255));
 
         jLabel2.setBackground(new Color(255, 255, 255));
         jLabel2.setFont(jLabel2.getFont().deriveFont(jLabel2.getFont().getStyle() | Font.BOLD, jLabel2.getFont().getSize() + 24));
