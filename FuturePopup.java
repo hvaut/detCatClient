@@ -49,6 +49,19 @@ public class FuturePopup extends JPanel {
                         .addGap(0, 286, Short.MAX_VALUE)
         );
 
+        jLabel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 20, true));
+
+        javax.swing.GroupLayout jLabel12Layout = new javax.swing.GroupLayout(jLabel12);
+        jLabel12.setLayout(jLabel12Layout);
+        jLabel12Layout.setHorizontalGroup(
+                jLabel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 181, Short.MAX_VALUE)
+        );
+        jLabel12Layout.setVerticalGroup(
+                jLabel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 286, Short.MAX_VALUE)
+        );
+
         jPanel13.setBorder(new LineBorder(new Color(255, 255, 255), 20, true));
 
         GroupLayout jPanel4Layout = new GroupLayout(jPanel13);
@@ -93,6 +106,7 @@ public class FuturePopup extends JPanel {
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap(177, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel1, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 206, GroupLayout.PREFERRED_SIZE))
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -120,6 +134,7 @@ public class FuturePopup extends JPanel {
                                         .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel11, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jPanel13, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addGap(104, 104, 104)
@@ -135,12 +150,12 @@ public class FuturePopup extends JPanel {
     /**
      * Setzt die Karten, die angezeigt werden sollen
      *
-     * @param cards die Karten (Länge des Arrays: 0 bis 3)
+     * @param cards die Karten (Länge des Arrays: 0 - 3)
      */
     public void setCards(Card[] cards) {
-        jLabel11.setIcon(cards.length >= 1 ? new ImageIcon(getClass().getResource("images/" + cards[0].name().toLowerCase() + ".jpg")) : null);
-        jLabel12.setIcon(cards.length >= 2 ? new ImageIcon(getClass().getResource("images/" + cards[1].name().toLowerCase() + ".jpg")) : null);
-        jPanel13.setIcon(cards.length >= 3 ? new ImageIcon(getClass().getResource("images/" + cards[2].name().toLowerCase() + ".jpg")) : null);
+        jLabel12.setIcon(cards.length >= 3 ? new ImageIcon(getClass().getResource("images/" + cards[2].name().toLowerCase() + ".jpg")) : null);
+        jLabel11.setIcon(cards.length >= 2 ? new ImageIcon(getClass().getResource("images/" + cards[1].name().toLowerCase() + ".jpg")): null);
+        jPanel13.setIcon(cards.length >= 1 ? new ImageIcon(getClass().getResource("images/" + cards[0].name().toLowerCase() + ".jpg")): null);
     }
 
 }
