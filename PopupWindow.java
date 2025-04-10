@@ -7,8 +7,9 @@ import java.awt.*;
  */
 public class PopupWindow extends JFrame {
 
-    private DeathPopup deathPopup;
+    private EndPopup endPopup;
     private DefusePopup defusePopup;
+    private FuturePopup futurePopup;
     private ErrorPopup errorPopup;
 
     private MainWindow mainWindow;
@@ -22,24 +23,26 @@ public class PopupWindow extends JFrame {
     }
 
     private void initComponents() {
-        deathPopup = new DeathPopup(this);
+        endPopup = new EndPopup(this);
         errorPopup = new ErrorPopup(this);
         defusePopup = new DefusePopup(this);
+        futurePopup = new FuturePopup(this);
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new CardLayout());
-        getContentPane().add(deathPopup, "death");
+        getContentPane().add(endPopup, "end");
         getContentPane().add(errorPopup, "error");
         getContentPane().add(defusePopup, "defuse");
+        getContentPane().add(futurePopup, "future");
 
         pack();
     }
 
     /**
-     * Setzt das aktuelle Fenster auf Death
+     * Setzt das aktuelle Fenster auf End
      */
-    public void switchPanelToDeath() {
-        ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "death");
+    public void switchPanelToEnd() {
+        ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "end");
     }
 
     /**
@@ -57,12 +60,19 @@ public class PopupWindow extends JFrame {
     }
 
     /**
-     * Gibt das Todesfenster zurück
-     *
-     * @return das Todesfenster
+     * Setzt das aktuelle Fenster auf Future
      */
-    public DeathPopup getDeathPopup() {
-        return deathPopup;
+    public void switchPanelToFuture() {
+        ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "future");
+    }
+
+    /**
+     * Gibt das Todesfenster bzw. Siegerfenster zurück
+     *
+     * @return das Todesfenster bzw. Siegerfenster
+     */
+    public EndPopup getEndPopup() {
+        return endPopup;
     }
 
     /**
@@ -72,6 +82,15 @@ public class PopupWindow extends JFrame {
      */
     public DefusePopup getDefusePopup() {
         return defusePopup;
+    }
+
+    /**
+     * Gibt das Zukunftssfenster zurück
+     *
+     * @return das Zukunftssfenster
+     */
+    public FuturePopup getFuturePopup() {
+        return futurePopup;
     }
 
     /**

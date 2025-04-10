@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- *
  * @author Lumin007
  */
 public class MainWindow extends JFrame {
@@ -63,7 +62,17 @@ public class MainWindow extends JFrame {
      */
     public void popupDeath() {
         PopupWindow popupWindow = createPopup();
-        popupWindow.switchPanelToDeath();
+        popupWindow.getEndPopup().setMode(0);
+        popupWindow.switchPanelToEnd();
+    }
+
+    /**
+     * Erstellt ein Fenster mit einer Siegernachricht
+     */
+    public void popupWin() {
+        PopupWindow popupWindow = createPopup();
+        popupWindow.getEndPopup().setMode(1);
+        popupWindow.switchPanelToEnd();
     }
 
     /**
@@ -72,6 +81,15 @@ public class MainWindow extends JFrame {
     public void popupDefuse() {
         PopupWindow popupWindow = createPopup();
         popupWindow.switchPanelToDefuse();
+    }
+
+    /**
+     * Erstellt ein Fenster zum Sehen der zukünftigen Karten
+     */
+    public void popupFuture(Card[] cards) {
+        PopupWindow popupWindow = createPopup();
+        popupWindow.getFuturePopup().setCards(cards);
+        popupWindow.switchPanelToFuture();
     }
 
     private PopupWindow createPopup() {

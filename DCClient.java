@@ -73,6 +73,7 @@ public class DCClient extends Client {
             send("PILE");
             // update turn in windows
             window.getGamePanel().markPlayer(turn);
+            window.getGamePanel().resetCardMarkers();
         } else if (data[0].equalsIgnoreCase("JOIN") && data.length == 2) {
             // add the player
             addPlayer(data[1]);
@@ -100,6 +101,8 @@ public class DCClient extends Client {
             window.getGamePanel().updateNamesOrdered(inGame);
             // check if we left
             if (data[1].equalsIgnoreCase(name)) {
+                // leave the game
+                leaveGame();
                 // reset all data
                 reset();
                 // update windows
@@ -121,6 +124,10 @@ public class DCClient extends Client {
             }
         } else if (data[0].equalsIgnoreCase("WIN") && data.length == 2) {
             // winner is announced
+            if (data[1].equalsIgnoreCase(name)) {
+                // we won :)
+                window.popupWin();
+            }
         } else if (data[0].equalsIgnoreCase("CARD") && data.length >= 2) {
             // update cards on hand
             String[] cards = details.split(" ");
@@ -156,6 +163,31 @@ public class DCClient extends Client {
             }
             // update progress in windows
             window.getGamePanel().updateProgress();
+        } else if (data[0].equalsIgnoreCase("FUTURE") && data.length >= 2) {
+            // show the top cards
+            List<Card> cardList = new List<>();
+            int size = 0;
+            // go through the cards and validate them while preparing for an array
+            for (String string : details.split(" ")) {
+                Card card = Card.getCard(string);
+                // check if the card exists
+                if (card != null) {
+                    cardList.append(card);
+                    size++;
+                }
+            }
+            // create an array
+            Card[] cards = new Card[size];
+            // put cards from the list into the array
+            int i = 0;
+            cardList.toFirst();
+            while (cardList.hasAccess()) {
+                cards[i] = cardList.getContent();
+                cardList.next();
+                i++;
+            }
+            // show popup window
+            window.popupFuture(cards);
         }
     }
 
@@ -226,10 +258,12 @@ public class DCClient extends Client {
     }
 
     /**
-     * Sendet an den Server, dass wir uns abmelden
+     * Sendet an den Server, dass wir uns abmelden, falls wir angemeldet sind
      */
     public void leaveGame() {
-        send("LOGOUT");
+        if (loggedIn) {
+            send("LOGOUT");
+        }
     }
 
     /**

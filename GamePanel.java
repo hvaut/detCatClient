@@ -7,7 +7,6 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 /**
- *
  * @author Simon
  */
 public class GamePanel extends JPanel {
@@ -15,7 +14,7 @@ public class GamePanel extends JPanel {
     private JTextField jTextField1, jTextField10, jTextField11, jTextField12, jTextField13, jTextField2,
             jTextField3, jTextField4, jTextField5, jTextField6, jTextField7, jTextField8, jTextField9;
     private JButton jButton2, jButton10, jButton11, jButton3, jButton1, jButton4,
-            jButton5, jButton6, jButton7, jButton8, jButton9;
+            jButton5, jButton6, jButton7, jButton9;
     private JPanel jPanel1, jPanel2, jPanel3, jPanel4;
     private JProgressBar jProgressBar1, jProgressBar2;
 
@@ -31,7 +30,6 @@ public class GamePanel extends JPanel {
     }
 
     private void initComponents() {
-        jButton8 = new JButton();
         jPanel2 = new JPanel();
         jTextField8 = new JTextField();
         jTextField9 = new JTextField();
@@ -61,12 +59,6 @@ public class GamePanel extends JPanel {
         jTextField12 = new JTextField();
         jTextField13 = new JTextField();
         jButton11 = new JButton();
-
-        jButton8.setBackground(new Color(204, 204, 204));
-        jButton8.setForeground(new Color(0, 0, 0));
-        jButton8.setText("jButton1");
-        jButton8.setBorder(new LineBorder(new Color(255, 255, 255), 20, true));
-        jButton8.addActionListener(this::onCard8ButtonClick);
 
         setBackground(new Color(102, 102, 102));
         setForeground(new Color(153, 153, 153));
@@ -138,26 +130,30 @@ public class GamePanel extends JPanel {
 
         jButton4.setBackground(new Color(204, 204, 204));
         jButton4.setForeground(new Color(0, 0, 0));
-        jButton4.setText("4");
+        jButton4.setIcon(new ImageIcon(getClass().getResource("images/" + Card.values()[3].name().toLowerCase() + ".jpg")));
         jButton4.setBorder(new LineBorder(new Color(255, 255, 255), 20, true));
+        jButton4.setText("");
         jButton4.addActionListener(this::onCard4ButtonClick);
 
         jButton5.setBackground(new Color(204, 204, 204));
         jButton5.setForeground(new Color(0, 0, 0));
-        jButton5.setText("5");
+        jButton5.setIcon(new ImageIcon(getClass().getResource("images/" + Card.values()[4].name().toLowerCase() + ".jpg")));
         jButton5.setBorder(new LineBorder(new Color(255, 255, 255), 20, true));
+        jButton5.setText("");
         jButton5.addActionListener(this::onCard5ButtonClick);
 
         jButton6.setBackground(new Color(204, 204, 204));
         jButton6.setForeground(new Color(0, 0, 0));
-        jButton6.setText("6");
+        jButton6.setIcon(new ImageIcon(getClass().getResource("images/" + Card.values()[5].name().toLowerCase() + ".jpg")));
         jButton6.setBorder(new LineBorder(new Color(255, 255, 255), 20, true));
+        jButton6.setText("");
         jButton6.addActionListener(this::onCard6ButtonClick);
 
         jButton7.setBackground(new Color(204, 204, 204));
         jButton7.setForeground(new Color(0, 0, 0));
-        jButton7.setText("7");
+        jButton7.setIcon(new ImageIcon(getClass().getResource("images/" + Card.values()[6].name().toLowerCase() + ".jpg")));
         jButton7.setBorder(new LineBorder(new Color(255, 255, 255), 20, true));
+        jButton7.setText("");
         jButton7.addActionListener(this::onCard7ButtonClick);
 
         jTextField1.setBackground(new Color(204, 204, 204));
@@ -450,10 +446,6 @@ public class GamePanel extends JPanel {
         onCardButtonClick(evt, 7);
     }
 
-    private void onCard8ButtonClick(ActionEvent evt) {
-        onCardButtonClick(evt, 8);
-    }
-
     private void onCardButtonClick(ActionEvent evt, int card) {
         // check if the game started
         if (mainWindow.getClient().isInGame() && mainWindow.getClient().isTurn()) {
@@ -577,10 +569,10 @@ public class GamePanel extends JPanel {
         jTextField1.setText(decimalFormat.format(Card.values()[0].getCount()));
         jTextField2.setText(decimalFormat.format(Card.values()[1].getCount()));
         jTextField3.setText(decimalFormat.format(Card.values()[2].getCount()));
-        /* jTextField4.setText(decimalFormat.format(Card.DEFUSE.getCount()));
-        jTextField5.setText(decimalFormat.format(Card.DEFUSE.getCount()));
-        jTextField6.setText(decimalFormat.format(Card.DEFUSE.getCount()));
-        jTextField7.setText(decimalFormat.format(Card.DEFUSE.getCount())); */
+        jTextField4.setText(decimalFormat.format(Card.values()[3].getCount()));
+        jTextField5.setText(decimalFormat.format(Card.values()[4].getCount()));
+        jTextField6.setText(decimalFormat.format(Card.values()[5].getCount()));
+        jTextField7.setText(decimalFormat.format(Card.values()[6].getCount()));
     }
 
     /**

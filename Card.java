@@ -4,7 +4,10 @@ public enum Card {
     CAT("CAT"),
     SKIP("SKIP"),
     DEFUSE("DEFUSE"),
-    DET_CAT("DET");
+    DET_CAT("DET"),
+    SHUFFLE("SHUFFLE"),
+    ATTACK("ATTACK"),
+    SEE_FUTURE("FUTURE");
 
     /**
      * Gibt eine Karte zurück, wenn dessen Id mit dem Parameter übereinstimmt
