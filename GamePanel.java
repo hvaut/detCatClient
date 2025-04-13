@@ -16,7 +16,7 @@ public class GamePanel extends JPanel {
     private JButton jButton2, jButton10, jButton11, jButton3, jButton1, jButton4,
             jButton5, jButton6, jButton7, jButton9;
     private JPanel jPanel1, jPanel2, jPanel3, jPanel4;
-    private JProgressBar jProgressBar1, jProgressBar2;
+    private JProgressBar jProgressBar2, jProgressBar1;
 
     private MainWindow mainWindow;
 
@@ -50,8 +50,8 @@ public class GamePanel extends JPanel {
         jTextField7 = new JTextField();
         jButton9 = new JButton();
         jButton10 = new JButton();
-        jProgressBar1 = new JProgressBar();
         jProgressBar2 = new JProgressBar();
+        jProgressBar1 = new JProgressBar();
         jPanel3 = new JPanel();
         jTextField10 = new JTextField();
         jTextField11 = new JTextField();
@@ -384,10 +384,10 @@ public class GamePanel extends JPanel {
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jButton10, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jProgressBar2, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jProgressBar1, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
                                 .addGap(352, 352, 352)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addComponent(jProgressBar1, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jProgressBar2, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jButton9, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
@@ -407,8 +407,8 @@ public class GamePanel extends JPanel {
                                         .addComponent(jPanel4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addComponent(jProgressBar1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jProgressBar2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jProgressBar2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jProgressBar1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addComponent(jButton10, GroupLayout.PREFERRED_SIZE, 273, GroupLayout.PREFERRED_SIZE)
@@ -580,7 +580,8 @@ public class GamePanel extends JPanel {
      */
     public void updateProgress() {
         jProgressBar1.setValue((int) (((float) mainWindow.getClient().getPile() / (float) mainWindow.getClient().getFirstPile()) * 100));
-        jProgressBar2.setValue((int) (((float) mainWindow.getClient().getPlaced() / (float) mainWindow.getClient().getFirstPile()) * 100));
+        // currently every card that can be placed sums up to: firstPile - 3 (bombs) + (7 (card from the pile) + 1 (defuse)) * 4 (card every player has) = firstPile + 29
+        jProgressBar2.setValue((int) (((float) mainWindow.getClient().getPlaced() / (float) (mainWindow.getClient().getFirstPile() + 29)) * 100));
     }
 
     /**

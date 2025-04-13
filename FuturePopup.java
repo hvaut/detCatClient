@@ -153,9 +153,9 @@ public class FuturePopup extends JPanel {
      * @param cards die Karten (Länge des Arrays: 0 - 3)
      */
     public void setCards(Card[] cards) {
-        jLabel12.setIcon(cards.length >= 3 ? new ImageIcon(getClass().getResource("images/" + cards[2].name().toLowerCase() + ".jpg")) : null);
-        jLabel11.setIcon(cards.length >= 2 ? new ImageIcon(getClass().getResource("images/" + cards[1].name().toLowerCase() + ".jpg")): null);
-        jPanel13.setIcon(cards.length >= 1 ? new ImageIcon(getClass().getResource("images/" + cards[0].name().toLowerCase() + ".jpg")): null);
+        jLabel12.setIcon(new ImageIcon(cards.length >= 3 ? getClass().getResource("images/" + cards[2].name().toLowerCase() + ".jpg") : getClass().getResource("images/empty.jpg")));
+        jLabel11.setIcon(new ImageIcon(cards.length >= 2 ? getClass().getResource("images/" + cards[1].name().toLowerCase() + ".jpg") : getClass().getResource("images/empty.jpg")));
+        jPanel13.setIcon(new ImageIcon(cards.length >= 1 ? getClass().getResource("images/" + cards[0].name().toLowerCase() + ".jpg") : getClass().getResource("images/empty.jpg")));
     }
 
 }

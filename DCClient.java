@@ -62,6 +62,8 @@ public class DCClient extends Client {
             }
             // increase place count
             placed++;
+            // update pile count
+            send("PILE");
         } else if (data[0].equalsIgnoreCase("TAKE") && data.length == 2) {
             // do nothing because we will get a card update message
         } else if (data[0].equalsIgnoreCase("TURN") && data.length == 2) {
