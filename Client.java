@@ -26,7 +26,7 @@ import java.net.Socket;
  * </p>
  *
  * @author Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule (Bearbeitet)
- * @version 30.08.2016
+ * @version 13.04.2025
  */
 
 public abstract class Client {
